@@ -1,0 +1,28 @@
+{
+  "user": {
+    "name": "abc123",
+    "selfAssessment": 1
+  },
+  "timestamp": "2025-12-15T17:21:07.866Z",
+  "results": {
+    "dimension1": {
+      "level": 2,
+      "meanScore": 2.5714285714285716,
+      "gatekeeperScore": 1,
+      "downgradeReason": null,
+      "downgraded": false,
+      "raw_answers": {
+        "d1_q1": 4,
+        "d1_q2": 2,
+        "d1_q3": 3,
+        "d1_q4": 2,
+        "d1_q5": 3,
+        "d1_q6": 2,
+        "d1_q7": 2,
+        "d1_gk1": 1,
+        "d1_gk2": 0
+      }
+    }
+  },
+  "averageLevel": "2.0"
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Literacy Assessment Tool - Ermitteln Sie Ihren Reifegrad im Umgang mit Künstlicher Intelligenz">
+    <title>AI Literacy Assessment Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation Header -->
+        <nav id="nav-header" class="nav-bar hidden" role="navigation" aria-label="Quiz Navigation">
+            <div class="nav-group nav-left">
+                <button id="btn-prev" class="nav-btn" onclick="app.prevQuestion()" aria-label="Zurück zur vorherigen Frage">
+                    &#8592; Zurück
+                </button>
+                <button id="btn-next" class="nav-btn" onclick="app.nextQuestion()" aria-label="Weiter zur nächsten Frage">
+                    Weiter &#8594;
+                </button>
+            </div>
+
+            <div class="nav-group nav-center">
+                <span id="header-progress" aria-live="polite">Frage 1 / 8</span>
+            </div>
+
+            <div class="nav-group nav-right">
+                <button class="nav-btn" onclick="app.exitAssessment()" aria-label="Assessment beenden">
+                    Exit &#10005;
+                </button>
+            </div>
+        </nav>
+
+        <!-- Landing Screen -->
+        <main id="screen-landing" class="content-area" role="main">
+            <header class="hero">
+                <h1>AI Literacy Check</h1>
+                <p class="subtitle">Ermitteln Sie Ihren Reifegrad im Umgang mit Künstlicher Intelligenz.</p>
+                <div class="meta-info">
+                    <span class="badge">⏱️ 10 Min</span>
+                    <span class="badge">🛡️ Anonym</span>
+                    <label for="file-upload" class="badge badge-upload" role="button" tabindex="0">
+                        📂 Ergebnis laden
+                    </label>
+                    <input type="file" id="file-upload" accept=".json" class="file-input-hidden" 
+                           onchange="app.loadResultFromFile(this)" aria-label="Ergebnisdatei laden">
+                </div>
+            </header>
+
+            <section class="input-section" aria-labelledby="username-label">
+                <label id="username-label" for="username">Ihr Name / ID:</label>
+                <input type="text" id="username" name="username" 
+                       placeholder="z. B. Max Mustermann" autocomplete="name" 
+                       aria-required="true" aria-describedby="error-msg">
+            </section>
+
+            <section class="selection-section" aria-labelledby="archetype-heading">
+                <h2 id="archetype-heading">Wie schätzen Sie sich aktuell ein?</h2>
+                <p class="hint">Klicken Sie auf das Profil, das am ehesten auf Sie zutrifft.</p>
+
+                <div class="cards-grid" id="archetype-selector" role="radiogroup" aria-labelledby="archetype-heading">
+                    <div class="card selectable-card" role="radio" aria-checked="false" 
+                         onclick="app.selectArchetype(0, this)" tabindex="0">
+                        <div class="icon" aria-hidden="true">🌱</div>
+                        <h3>Der Entdecker</h3>
+                        <p>Ich nutze KI selten. Ich möchte Grundlagen verstehen und bin unsicher bei den Ergebnissen.</p>
+                    </div>
+
+                    <div class="card selectable-card" role="radio" aria-checked="false" 
+                         onclick="app.selectArchetype(1, this)" tabindex="0">
+                        <div class="icon" aria-hidden="true">👁️</div>
+                        <h3>Der Beobachter</h3>
+                        <p>Ich kenne Risiken, nutze KI aber nur für einfache Aufgaben und prüfe nicht systematisch.</p>
+                    </div>
+
+                    <div class="card selectable-card" role="radio" aria-checked="false" 
+                         onclick="app.selectArchetype(2, this)" tabindex="0">
+                        <div class="icon" aria-hidden="true">🛠️</div>
+                        <h3>Der Anwender</h3>
+                        <p>Ich nutze KI sicher im Alltag, prompt bewusst und prüfe Ergebnisse kritisch.</p>
+                    </div>
+
+                    <div class="card selectable-card" role="radio" aria-checked="false" 
+                         onclick="app.selectArchetype(3, this)" tabindex="0">
+                        <div class="icon" aria-hidden="true">🚀</div>
+                        <h3>Der Gestalter</h3>
+                        <p>Ich erkenne komplexe Risiken (Bias, Datenschutz), übernehme Verantwortung und leite andere an.</p>
+                    </div>
+                </div>
+
+                <div class="method-note" role="note">
+                    <small>💡 <strong>Hinweis:</strong> Ihre Selbsteinschätzung wird im Test durch Praxis-Szenarien validiert.</small>
+                </div>
+            </section>
+
+            <div class="action-area">
+                <button id="start-btn" class="primary-btn" onclick="app.startAssessment()" 
+                        disabled aria-describedby="error-msg">
+                    Assessment Starten
+                </button>
+                <p id="error-msg" class="error-message" role="alert" aria-live="polite">
+                    Bitte wählen Sie ein Profil und geben Sie einen Namen ein.
+                </p>
+            </div>
+        </main>
+
+        <!-- Home Screen -->
+        <main id="screen-home" class="content-area hidden" role="main">
+            <h1>Dashboard</h1>
+            <h2>Wählen Sie einen Bereich zur Bearbeitung.</h2>
+
+            <div id="home-grid" class="dimension-grid" role="list" aria-label="Assessment Dimensionen">
+                <!-- Dimension cards will be inserted here -->
+            </div>
+
+            <button class="finish-assessment-btn" onclick="app.showFinalResults()" 
+                    aria-label="Assessment abschließen und Ergebnisse anzeigen">
+                Ergebnisse anzeigen & Speichern
+            </button>
+        </main>
+
+        <!-- Quiz Screen -->
+        <main id="screen-quiz" class="content-area hidden" role="main">
+            <div id="question-container" role="region" aria-live="polite" aria-atomic="true">
+                <!-- Questions will be rendered here -->
+            </div>
+        </main>
+
+        <!-- Final Results Screen -->
+        <main id="screen-final" class="content-area hidden" role="main">
+            <header class="report-header">
+                <h1>Assessment Ergebnisse</h1>
+                <p>Zusammenfassung Ihrer Kompetenzen</p>
+            </header>
+
+            <div id="final-total-score" class="total-score-box" role="region" aria-label="Gesamtbewertung">
+                <div class="total-score-label">Ihr Gesamt-Level</div>
+                <div id="total-score-val" class="total-score-val" aria-live="polite">0.0</div>
+            </div>
+
+            <div id="final-user-summary" class="user-summary" role="region" aria-label="Benutzerinformationen">
+                <!-- User summary will be inserted here -->
+            </div>
+
+            <div id="final-results-container" role="region" aria-label="Detaillierte Ergebnisse">
+                <!-- Result cards will be inserted here -->
+            </div>
+
+            <div class="save-status-container" id="save-status" role="status" aria-live="polite" aria-atomic="true">
+                <span class="status-icon" aria-hidden="true">⏳</span>
+                <div class="status-text">Speichere Ergebnisse...</div>
+            </div>
+
+            <div class="action-area">
+                <button class="nav-btn" onclick="location.reload()" aria-label="Neuen Assessment starten">
+                    Neuer Benutzer
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

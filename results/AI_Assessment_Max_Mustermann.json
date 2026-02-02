@@ -1,0 +1,113 @@
+{
+  "user": {
+    "name": "Max Mustermann",
+    "selfAssessment": 2
+  },
+  "timestamp": "2026-02-02T22:24:12.867Z",
+  "results": {
+    "dimension1": {
+      "level": 2,
+      "meanScore": 2.7142857142857144,
+      "gatekeeperScore": 2,
+      "downgradeReason": null,
+      "downgraded": false,
+      "raw_answers": {
+        "d1_q1": 3,
+        "d1_q2": 2,
+        "d1_q3": 4,
+        "d1_q4": 2,
+        "d1_q5": 3,
+        "d1_q6": 2,
+        "d1_q7": 3,
+        "d1_gk1": 1,
+        "d1_gk2": 1
+      }
+    },
+    "dimension2": {
+      "level": 2,
+      "meanScore": 2.5,
+      "gatekeeperScore": 2,
+      "downgradeReason": null,
+      "downgraded": false,
+      "raw_answers": {
+        "d2_q1": 2,
+        "d2_q2": 3,
+        "d2_q3": 4,
+        "d2_q4": 1,
+        "d2_q5": 3,
+        "d2_q6": 2,
+        "d2_gk1": 1,
+        "d2_gk2": 1
+      }
+    },
+    "dimension3": {
+      "level": 0,
+      "meanScore": 2,
+      "gatekeeperScore": 2,
+      "downgradeReason": null,
+      "downgraded": false,
+      "raw_answers": {
+        "d3_q1": 1,
+        "d3_q2": 2,
+        "d3_q3": 3,
+        "d3_q4": 1,
+        "d3_q5": 2,
+        "d3_q6": 3,
+        "d3_gk1": 1,
+        "d3_gk2": 1
+      }
+    },
+    "dimension4": {
+      "level": 2,
+      "meanScore": 2.8333333333333335,
+      "gatekeeperScore": 1,
+      "downgradeReason": null,
+      "downgraded": false,
+      "raw_answers": {
+        "d4_q1": 2,
+        "d4_q2": 3,
+        "d4_q3": 2,
+        "d4_q4": 1,
+        "d4_q5": 4,
+        "d4_q6": 5,
+        "d4_gk1": 1,
+        "d4_gk2": 0
+      }
+    },
+    "dimension5": {
+      "level": 2,
+      "meanScore": 5,
+      "gatekeeperScore": 0,
+      "downgradeReason": "Abweichung: Hohe Selbsteinschätzung, aber Sicherheitslücken in den Szenarien.",
+      "downgraded": true,
+      "raw_answers": {
+        "d5_q1": 5,
+        "d5_q2": 5,
+        "d5_q3": 5,
+        "d5_q4": 5,
+        "d5_q5": 5,
+        "d5_q6": 5,
+        "d5_gk1": 0,
+        "d5_gk2": 0
+      }
+    },
+    "dimension6": {
+      "level": 0,
+      "meanScore": 1.8333333333333333,
+      "gatekeeperScore": 1,
+      "downgradeReason": null,
+      "downgraded": false,
+      "raw_answers": {
+        "d6_q1": 2,
+        "d6_q2": 1,
+        "d6_q3": 3,
+        "d6_q4": 2,
+        "d6_q5": 1,
+        "d6_q6": 2,
+        "d6_gk1": 1,
+        "d6_gk2": 0
+      }
+    }
+  },
+  "averageLevel": "1.3"
+}

@@ -7,6 +7,7 @@ A governance-aligned prototype for assessing organizational AI literacy and read
 This repository contains a web-based AI literacy assessment framework that helps organizations evaluate workforce readiness for responsible AI usage.
 
 The model combines technical understanding, ethical awareness, critical evaluation, and governance principles across six assessment dimensions. It is designed to support practical capability development while reflecting emerging regulatory expectations.
+The model is designed for role-based assessment in alignment with EU AI Act literacy obligations (Article 4).
 
 Intended for innovation teams, compliance officers, HR training leads, and organizations integrating AI into operational workflows.
 
@@ -20,7 +21,7 @@ The framework enables organizations to:
 
 As AI use expands and regulation matures, AI literacy is becoming an operational governance requirement, not just a training topic.
 
-Many organizations adopt AI tools faster than they build internal competency structures. This framework addresses that structural gap.
+Empirical studies show rising AI adoption alongside governance gaps and risk behaviors, including shadow AI usage and overconfidence in outputs. This framework addresses that structural gap.
 
 Key risks addressed by this framework include:
 - Blind trust in AI-generated outputs
@@ -41,11 +42,14 @@ The objective is to assess not only technical capability, but also responsible a
 
 ## Research & Model Development
 
+The framework was developed using a Design Science Research approach, combining literature synthesis, model construction, and prototype evaluation.
+
 The six-dimension model was developed through structured literature analysis and synthesis of AI literacy and governance frameworks.
 
 Existing approaches often emphasize either technical skills or ethical awareness. This model integrates technical, operational, and governance dimensions into a unified organizational readiness perspective.
 
 The scoring logic, including downgrade mechanisms for critical failures, follows risk-based thinking aligned with responsible AI deployment principles.
+The framework explicitly addresses self-report bias and overconfidence through scenario-based gatekeeper logic inspired by research on AI dependency and calibrated trust.
 
 ## Framework Model: Six Assessment Dimensions
 
@@ -60,7 +64,7 @@ The scoring logic, including downgrade mechanisms for critical failures, follows
 5. **Societal Impact & Sustainability**  
    Broader consequences of AI decisions in work and society.
 6. **Risk, Human Oversight & Governance**  
-   Risk awareness, oversight responsibilities, and governance alignment.
+   Risk awareness, oversight responsibilities, governance alignment, and human oversight modes (for example Human-in-the-Loop and Human-on-the-Loop).
 
 Each dimension combines:
 - Likert-scale knowledge and behavior indicators

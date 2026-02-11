@@ -1,177 +1,125 @@
-# AI Literacy Assessment Tool
+# AI Literacy Readiness Framework
 
-A web-based assessment tool for evaluating AI literacy and competency across six key dimensions. The tool helps users understand their level of proficiency in working with artificial intelligence systems.
+A governance-aligned prototype for assessing organizational AI literacy and readiness.
 
-**Module**: WIPRO  
-**Theme**: AI Literacy Bewertungskatalog
+## Overview
 
-**Note**: All questions, interface text, and result descriptions are in German.
+This repository contains a web-based AI literacy assessment framework that helps organizations evaluate workforce readiness for responsible AI usage.
 
-## About
+The model combines technical understanding, ethical awareness, critical evaluation, and governance principles across six assessment dimensions. It is designed to support practical capability development while reflecting emerging regulatory expectations.
 
-This AI Literacy Assessment Tool was developed as part of the **WIPRO module** at **HSLU (Hochschule Luzern) Informatik Rotkreuz** under the theme **AI Literacy Bewertungskatalog**. 
+Intended for innovation teams, compliance officers, HR training leads, and organizations integrating AI into operational workflows.
 
-The tool provides a comprehensive evaluation framework for assessing AI literacy and competency across six critical dimensions. It combines theoretical knowledge assessment with practical scenario-based questions to validate users' understanding and application of AI concepts in real-world contexts.
+The framework enables organizations to:
+- Identify AI competency gaps
+- Detect overconfidence in AI usage
+- Structure AI literacy development initiatives
+- Support governance and compliance readiness (including EU AI Act literacy obligations)
 
-The assessment helps individuals and organizations:
-- Identify knowledge gaps in AI literacy
-- Understand competency levels across different AI domains
-- Receive personalized recommendations for skill development
-- Track progress over time through saved results
+## Why AI Literacy Matters
 
-Developed by **Michael Roos** as an educational tool for evaluating and improving AI competency in professional and academic settings.
+As AI use expands and regulation matures, AI literacy is becoming an operational governance requirement, not just a training topic.
 
-## Features
+Many organizations adopt AI tools faster than they build internal competency structures. This framework addresses that structural gap.
 
-- **Six Assessment Dimensions**: Covers technical understanding, practical application, critical evaluation, ethics, societal impact, and governance
-- **Interactive Quiz Interface**: User-friendly Likert scale and scenario-based questions
-- **Progress Tracking**: Visual indicators for completed and in-progress dimensions
-- **Results Export**: Save assessment results as JSON files
-- **Responsive Design**: Works on desktop and mobile devices
-- **Accessibility**: ARIA labels and semantic HTML for screen readers
+Key risks addressed by this framework include:
+- Blind trust in AI-generated outputs
+- Limited understanding of hallucinations and bias
+- Missing human oversight mechanisms
+- Overestimation of individual AI expertise
+- Unstructured AI adoption in business processes
 
-## Project Structure
+## Conceptual Foundation
 
-```
-Fragebogen/
-├── app.js          # Main application logic
-├── data.js          # Questions database and result texts
-├── index.html       # HTML structure
-├── style.css        # Styling and layout
-├── server.py        # Python server for saving results
-├── results/         # Directory for saved assessment results
-└── README.md        # This file
-```
+The framework is informed by:
+- EU AI Act literacy obligations (Article 4) and related human oversight principles (Articles 13-14)
+- UNESCO AI competency perspectives
+- Critical AI literacy principles (including Dagstuhl Triangle references)
+- Corporate governance and risk management thinking
 
-## Getting Started
+The objective is to assess not only technical capability, but also responsible and sustainable AI integration in organizational settings.
 
-### Prerequisites
+## Research & Model Development
 
-- Python 3.6 or higher (for the server)
-- A modern web browser with JavaScript enabled
+The six-dimension model was developed through structured literature analysis and synthesis of AI literacy and governance frameworks.
 
-### Installation
+Existing approaches often emphasize either technical skills or ethical awareness. This model integrates technical, operational, and governance dimensions into a unified organizational readiness perspective.
 
-1. Clone or download this repository
-2. No additional dependencies required
+The scoring logic, including downgrade mechanisms for critical failures, follows risk-based thinking aligned with responsible AI deployment principles.
 
-### Running the Application
+## Framework Model: Six Assessment Dimensions
 
-1. **Start the Python server** (optional, for saving results):
-   ```bash
-   python server.py
-   ```
-   The server will start on `http://localhost:8000`
+1. **Technical Understanding & Data Competence**  
+   Fundamentals of AI systems, data quality, model limitations, and error patterns.
+2. **Practical Application & Tool Usage**  
+   Prompting, workflow integration, and safe operational use of AI tools.
+3. **Critical Evaluation of AI Outputs**  
+   Validation, plausibility checks, bias detection, and escalation behavior.
+4. **Ethics, Rights & Data Protection**  
+   Privacy, fairness, intellectual property awareness, and compliance sensitivity.
+5. **Societal Impact & Sustainability**  
+   Broader consequences of AI decisions in work and society.
+6. **Risk, Human Oversight & Governance**  
+   Risk awareness, oversight responsibilities, and governance alignment.
 
-2. **Open the application**:
-   - If using the server: Navigate to `http://localhost:8000` in your browser
-   - Without server: Open `index.html` directly in your browser (results saving will use fallback download)
-
-## Usage
-
-1. **Start Assessment**:
-   - Enter your name or ID
-   - Select your self-assessment level (Entdecker, Beobachter, Anwender, or Gestalter)
-   - Click "Assessment Starten"
-
-2. **Complete Dimensions**:
-   - Select a dimension from the dashboard
-   - Answer all questions in the quiz
-   - Navigate between questions using the Previous/Next buttons
-   - Exit anytime to return to the dashboard
-
-3. **View Results**:
-   - Click "Ergebnisse anzeigen & Speichern" when all dimensions are completed
-   - Review your scores and recommendations
-   - Results are automatically saved to the `results/` directory
-
-4. **Load Previous Results**:
-   - Click "Ergebnis laden" on the landing page
-   - Select a previously saved JSON file
-   - View your previous assessment results
-
-## Assessment Dimensions
-
-1. **Technisches Verständnis & Datenkompetenz**: Understanding of AI fundamentals, hallucinations, and data flow
-2. **Praktische Anwendung & Toolnutzung**: Prompting strategies, iteration, and human-in-the-loop practices
-3. **Kritische Bewertung von KI-Outputs**: Validation, bias detection, and responsibility awareness
-4. **Ethik, Rechte & Datenschutz**: Data protection, copyright, and fairness considerations
-5. **Gesellschaftliche Wirkung & Nachhaltigkeit**: Sustainability, disinformation, and workplace impact
-6. **Risiko, menschliche Aufsicht & Governance**: Risk classification, human oversight, and compliance
-
-## Scoring System
-
-- **Level 0 (Novice)**: Beginner level, focus on knowledge building
-- **Level 1 (Awareness)**: Knows theory but applies it uncertainly
-- **Level 2 (Practitioner)**: Uses AI safely and efficiently in daily work
-- **Level 3 (Expert)**: Masters technique, ethics, and governance at top level
-
-Scores are calculated based on:
-- Likert scale responses (1-5)
+Each dimension combines:
+- Likert-scale knowledge and behavior indicators
 - Scenario-based gatekeeper questions
-- Potential downgrades for critical security failures
+- Downgrade logic for critical failures in safety/compliance-relevant topics
 
-## Technical Details
+## Prototype Implementation
 
-### Code Quality
+The current repository provides a functional prototype with:
+- Interactive browser-based assessment flow
+- Multi-dimensional scoring logic
+- JSON export and import for assessment results
+- Lightweight local Python server for result persistence
+- Responsive and accessible frontend structure
 
-The codebase follows clean code principles:
-- **Modular structure**: Functions with single responsibilities
-- **Documentation**: JSDoc comments and inline documentation
-- **Constants**: Magic numbers and strings extracted to constants
-- **Error handling**: Comprehensive error handling throughout
-- **Accessibility**: ARIA labels and semantic HTML
-- **Responsive design**: Mobile-friendly CSS with media queries
+**Language note:** The current assessment questions, interface text, and result descriptions are in German.
+The conceptual model is language-independent; only the prototype implementation is currently localized in German.
 
-### Browser Compatibility
+## Interface Screenshots
 
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+The following screenshots illustrate the current prototype interface and assessment flow.
 
-## File Format
+### Landing Page
 
-Saved results are stored as JSON with the following structure:
+![Landing page of the AI Literacy Readiness Framework](assets/screenshots/landing_page.png)
 
-```json
-{
-  "user": {
-    "name": "User Name",
-    "selfAssessment": 2
-  },
-  "timestamp": "2024-01-01T12:00:00.000Z",
-  "averageLevel": "2.5",
-  "results": {
-    "dimension1": {
-      "level": 2,
-      "meanScore": 3.2,
-      "gatekeeperScore": 1,
-      "downgradeReason": null,
-      "downgraded": false,
-      "raw_answers": { ... }
-    }
-  }
-}
-```
+### Dimension Dashboard
 
-## Development
+![Dashboard with six assessment dimensions](assets/screenshots/dashboard.png)
 
-### Code Style
+### Assessment Flow
 
-- JavaScript: ES6+ modules, camelCase naming
-- Python: PEP 8 style guide, type hints
-- HTML: Semantic HTML5, accessibility attributes
-- CSS: BEM-inspired naming, CSS custom properties
+![Assessment question view](assets/screenshots/assessment.png)
 
+### Likert-Scale Validation
 
-## License
+![Likert-scale question interface](assets/screenshots/likert.png)
 
-This project is provided as-is for educational and assessment purposes.
+### Scenario-Based Gatekeeper
 
-## Author
+![Scenario-based gatekeeper question](assets/screenshots/szenario.png)
 
-**Michael Roos**  
-HSLU Informatik Rotkreuz
+## Technical Information
 
-This assessment tool was developed as part of the WIPRO module at HSLU (Hochschule Luzern) Informatik Rotkreuz for evaluating AI competency levels.
+- **Stack:** HTML5, CSS3, Vanilla JavaScript, Python
+- **Runtime:** No external dependencies required
+- **Structure:** `index.html`, `style.css`, `app.js`, `data.js`, `server.py`, `assets/screenshots/`, `results/`
+- **Run locally:**  
+  1. Start server (optional, for persistence): `python server.py`  
+  2. Open `http://localhost:8000` (or open `index.html` directly without server persistence)
+
+## Project Status
+
+Prototype stage (concept validation). Potential next steps:
+- Organizational dashboards
+- Role-based assessment variants
+- Analytics and benchmarking
+- LMS and internal platform integration
+
+## Origin
+
+Originally developed in 2025 within the WIPRO program at HSLU Informatik (Switzerland).

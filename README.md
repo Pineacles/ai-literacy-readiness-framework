@@ -71,6 +71,27 @@ Each dimension combines:
 - Scenario-based gatekeeper questions
 - Downgrade logic for critical failures in safety/compliance-relevant topics
 
+## Competency Levels
+
+The framework classifies assessment outcomes into four progressive competency levels:
+
+**Level 0 - Foundational**  
+Limited understanding of AI systems and associated risks. Requires structured knowledge building and guided usage.
+
+**Level 1 - Aware**  
+Understands core AI concepts and risks but applies them inconsistently in practice.
+
+**Level 2 - Practitioner**  
+Uses AI tools responsibly in daily work, applies validation techniques, and demonstrates awareness of governance implications.
+
+**Level 3 - Governance-Aligned**  
+Demonstrates integrated technical, ethical, and governance competence. Capable of structured oversight and responsible AI integration within organizational contexts.
+
+Overall levels are derived from:
+- Aggregated dimension scores
+- Scenario-based validation
+- Risk-based downgrade mechanisms for critical failures
+
 ## Prototype Implementation
 
 The current repository provides a functional prototype with:
